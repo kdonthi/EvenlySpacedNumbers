@@ -45,7 +45,7 @@ def moveindex(index, nL, iL, rightLeft, optimalDiff):
 			iL[index] = indexcpy
 			return (1)
 		else: #if broke because left dist. becamse more than right dist.
-			if (sumdiffsq(nL[indexcpy], nL[iL[index + 1]], nL[iL[index - 1]]) < sumdiffsq(nL[indexcpy - 1], nL[iL[index + 1]], nL[iL[index - 1]])):
+			if (sumdiffsq(nL[indexcpy], nL[iL[index + 1]], nL[iL[index - 1]]) > sumdiffsq(nL[indexcpy - 1], nL[iL[index + 1]], nL[iL[index - 1]])):
 				iL[index] = indexcpy
 				return (1)
 			else: #if left dist becoming less increased the error,  increase by 1
@@ -95,6 +95,9 @@ def optimalSubsample(numslist, N):
 				change += moveindex(i, numslist, ilist, 1, optimalDiff)
 			elif rightleftdifference < 0 and left:
 				change += moveindex(i, numslist, ilist, 0, optimalDiff)
+			print(ilist)
+		print()
+		time.sleep(1)
 		#print(change)
 			#print(ilist, change)
 	finallist = []
@@ -167,8 +170,8 @@ def optimalSubsampleTrees(nums, N):
 			return (a[1])
 		else:
 			return (b[1])
-listtocheck = list(range(1000))
-num = 10
+listtocheck = list(range(100))
+num = 5
 begin = time.time()
 print(optimalSubsample(listtocheck, num))
 end = time.time()
