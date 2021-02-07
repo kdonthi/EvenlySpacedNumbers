@@ -9,4 +9,4 @@ Run ```python3 main.py``` with all the files in your directory to run the stress
 like ```print(optimalSubsample(list(range(100)),10))```
 or ```print(optimalSubsample([1,2,3,4,5],3)```.
 
-Make sure the second parameter (an integer), "N", is <= to the length of your first parameter (a list). Also, the first and last number of the list provided are always in the resulting list (make N >= 2).
+Make sure the second parameter (an integer), "N", is <= to the length of your first parameter (a list) and >= 2 (the first and last number of the list provided are always in the resulting list.)
