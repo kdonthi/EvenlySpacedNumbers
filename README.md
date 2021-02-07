@@ -4,9 +4,11 @@ This code finds an evenly spaced set of N numbers from a larger set in O(n^2). I
 
 Like K-means, this can get stuck in local minima, so I use reinitializations to try to find the global minima. I have 100% accuracy on 20,000 samples, using a less efficient recursive tree method going through possibilities of the list as "base truth".
 
-Run ''' python3 main.py''' with all the files in your directory to run the stress test, or run '''OptimalSubsampleNew.py''' and insert your own test case in the format:
+Run ### python3 main.py### with all the files in your directory to run the stress test, or insert your own test case in the format:
 
-'''print(optimalSubsample(list(range(100)),10))'''
-'''print(optimalSubsample([1,2,3,4,5],3)'''
+###print(optimalSubsample(list(range(100)),10))###
+###print(optimalSubsample([1,2,3,4,5],3)###
+
+and do ###python3 OptimalSubsampleNew.py###.
 
 Make sure the second parameter, "N", is <= to the length of your first parameter. Also, the first and last number of the list provided are always in the resulting list (make N >= 2).
