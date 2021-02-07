@@ -7,6 +7,6 @@ Like K-means, this can get stuck in local minima, so I use reinitializations to 
 Run ```python3 main.py``` with all the files in your directory to run the stress test, or run ```OptimalSubsampleNew.py``` and insert your own test case in the format:
 
 like ```print(optimalSubsample(list(range(100)),10))```
-or ```print(optimalSubsample([1,2,3,4,5],3)```
+or ```print(optimalSubsample([1,2,3,4,5],3)```.
 
 Make sure the second parameter, "N", is <= to the length of your first parameter. Also, the first and last number of the list provided are always in the resulting list (make N >= 2).
