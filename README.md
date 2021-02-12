@@ -1,4 +1,4 @@
-# ShiftingMethodOptimalTrees
+# Evenly-Spaced-Numbers
 
 This code finds an evenly spaced set of N numbers from a larger set in O(n^2). I do this by going through each number in a list, and shifting it right or left to minimize its MSE of its distances to its right or left with the "optimal distance", which is the (end - beginning) / (N - 1).
 
