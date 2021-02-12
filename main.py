@@ -6,9 +6,10 @@ import time
 correct = 0
 incorrect = 0
 begin = time.time()
-runs = 20000 #number of trials
+runs = 2000 #number of trials
+errorcounter = 0
 for i in range(runs): 
-	nums = random.randint(2,10) #number of numbers in the initial list
+	nums = random.randint(2,20) #number of numbers in the initial list
 	test = []
 	for j in range(nums):
 		test.append(random.randint(-1000,1000)) #range of numbers in the initial list
@@ -25,16 +26,17 @@ for i in range(runs):
 		if abs(os.mseDiff(res1,optimalDiff) - os.mseDiff(res2, optimalDiff)) <= 10 ** -9: #if the successive differences of the two lists have mean square errors with delta <= 10 ** -9  (w.r.t. optimalDiff), the answer is "correct" 
 			correct += 1
 		else:
-			print("MSE 1: " + str(os.mseDiff(res1,optimalDiff)))
-			print("MSE 2: " + str(os.mseDiff(res2,optimalDiff)))
+			errorcounter += 1
+			print("Error #" + str(errorcounter) + ":")
+			print("MSE Randomized Method (Being Tested): " + str(os.mseDiff(res1,optimalDiff)))
+			print("MSE Recursive Tree Method (Base Truth): " + str(os.mseDiff(res2,optimalDiff)))
 			incorrect += 1
-			print("Incorrect")
 			print("Data: ",end='')
 			print(test)
-			print("Current Method: ",end='')
+			print("Result of Randomized Method: ",end='')
 			print(res1)
-			print("Optimal Method: ",end='')
-			print(res2)
+			print("Result of Tree Method: ",end='')
+			print(res2, end = '\n\n')
 end = time.time()
 decimal = correct / (correct + incorrect)
 print("Stress Test Results for " + str(runs) + " samples:")

@@ -118,7 +118,9 @@ def optimalSubsample(numsList, N):
 
 ### Reinitialization similar to k-means - around 100% accuracy.
 
-	for i in range(150): #number of different initializations
+	reinitnum = (len(numsList) * N) * 2
+
+	for i in range(reinitnum): #number of different initializations
 		ilistcpy = ilist[:]
 		ilistcpy += random.sample(range(1,len(numsList)-1), N - 2)
 		ilistcpy.sort()
