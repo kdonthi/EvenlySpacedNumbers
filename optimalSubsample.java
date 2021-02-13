@@ -70,19 +70,12 @@ public class optimalSubsample {
 		listplusN obj = new listplusN();
 		int[] rtrnarray;
 		int length = list.length;
-		/*
-		if (list.length < N || N < 2) { //if the list can no longer achieve N number
-			obj.list = null;
-			obj.mse = -1;
-			return (obj);
-		} */
 		if (N == 2) //if we only have to choose two numbers, just choose begin and end
 		{
 			rtrnarray = new int[2];
 			rtrnarray[0] = list[0];
 			rtrnarray[1] = list[length - 1];
 			obj.list = rtrnarray;
-			//Array.printarray(rtrnarray);
 			obj.mse  = mse(rtrnarray, optimaldiff, original);;
 			return (obj);
 		}
@@ -128,7 +121,7 @@ public class optimalSubsample {
 			
 	}
 
-	public static int[] opSub(int[] array, int N) {
+	public static int[] optimalSubsample(int[] array, int N) {
 		int optimaldiff = (array[array.length - 1] - array[0]) / (N-1);
 		listplusN[][] indexbyN = new listplusN[array.length][N];
 		int[] indexarray = new int[array.length];
@@ -146,19 +139,57 @@ public class optimalSubsample {
 	}
 
 	public static void main (String[] args) {
-		int array1[] = new int[100];
-		int array2[] = {0,33,50,66,100};
-		int array3[] = {0,1,2,3,4,100};
-		System.out.println(Array.straighttoend(array2, 3));
-		System.out.println(Array.straighttoend(array3, 5));
+		int array1[] = {0, 33, 50, 66, 100};
+		int array2[] = new int[100];
+		int array3[] = {-897, -890, -819, -803, -612, -480, -330, -151, 43, 334, 463, 625, 894, 917, 947};
+		int array4[] = {-792, -706, -506, -464, -307, -285, -251, -236, -177, 37, 159, 359, 513, 731, 747};
+		int array5[] = {-936, -895, -889, -813, -770, -602, -497, -366, -181, -133, -78, 177, 290, 429, 550, 558, 566, 616};
+		int array6[] = {-932, -832, -696, -613, -470, -271, -138, -103, 54, 291, 405, 584, 796, 856, 901, 939, 948, 961, 997};
 
 		for (int i = 0; i < 100; i++)
 		{
-			array1[i] = i;
+			array2[i] = i;
 		}
-		Array.printarray(opSub(array1, 10));
-		Array.printarray(opSub(array2, 4));
-		
+		System.out.printf("Array of data for N = 3: ");
+		Array.printarray(array1);
+		System.out.printf("Solution: ");
+		Array.printarray(optimalSubsample(array1, 3));
+		System.out.println();
+
+		System.out.printf("Array of data for N = 4: ");
+		Array.printarray(array1);
+		System.out.printf("Solution: ");
+		Array.printarray(optimalSubsample(array1, 4));
+		System.out.println();
+
+		System.out.printf("Array of data for N = 10: ");
+		Array.printarray(array2);
+		System.out.printf("Solution: ");
+		Array.printarray(optimalSubsample(array2, 10));
+		System.out.println();
+
+		System.out.printf("Array of data for N = 11: ");
+		Array.printarray(array3);
+		System.out.printf("Solution: ");
+		Array.printarray(optimalSubsample(array3, 11));
+		System.out.println();
+
+		System.out.printf("Array of data for N = 8: ");
+		Array.printarray(array4);
+		System.out.printf("Solution: ");
+		Array.printarray(optimalSubsample(array4, 8));
+		System.out.println();
+
+		System.out.printf("Array of data for N = 11: ");
+		Array.printarray(array5);
+		System.out.printf("Solution: ");
+		Array.printarray(optimalSubsample(array5, 11));
+		System.out.println();
+
+		System.out.printf("Array of data for N = 13: ");
+		Array.printarray(array6);
+		Array.printarray(optimalSubsample(array6, 13));
+		System.out.println();
 	}
 }
 
