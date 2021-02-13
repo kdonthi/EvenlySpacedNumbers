@@ -11,7 +11,7 @@ or ```print(optimalSubsample([1,2,3,4,5],3)```.
 
 Make sure the second parameter (an integer), "N", is <= to the length of your first parameter (a list) and >= 2 (the first and last number of the list provided are always in the resulting list.)
 
-UDPATE: I have created an accurate solution and fast solution in Java using dynamic programming by storing the values of lists that are continuous from any index to the last index in an array. <br/>
+UDPATE: I have created an accurate solution and fast solution in Java using dynamic programming by storing the values of continuous lists.
 
 You can run this solution by compiling using ```javac optimalSubsample.java``` and then ```java optimalSubsample```. You can adjust the arrays given and the numbers to choose for each array. <br/>
 
