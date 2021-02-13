@@ -122,6 +122,27 @@ public class optimalSubsample {
 	}
 
 	public static int[] optimalSubsample(int[] array, int N) {
+		if (N < 2) {
+			System.out.println("Make sure you are choosing N greater than or equal to 2.");
+			System.exit(1);
+		}
+		
+		if (N > array.length) {
+			System.out.printf("Make sure your N is not greater than the amount of elements in the array!%n Your N is %d and your array length is %d.%n", N, array.length);
+			System.exit(1);
+		}
+
+		int[] returnlist;
+		if (N == 2) {
+			returnlist = new int[2];
+			returnlist[0] = array[0];
+			returnlist[1] = array[1];
+			return (returnlist);
+		}
+
+		if (N == array.length) {
+			return (array);
+		}
 		int optimaldiff = (array[array.length - 1] - array[0]) / (N-1);
 		listplusN[][] indexbyN = new listplusN[array.length][N];
 		int[] indexarray = new int[array.length];
@@ -129,7 +150,7 @@ public class optimalSubsample {
 			indexarray[i] = i;
 		listplusN[][] arrayindexbyN = new listplusN[array.length][N];
 		int[] finalia = recur(indexarray, N, array, optimaldiff, arrayindexbyN).list;
-		int[] returnlist = new int[finalia.length];
+		returnlist = new int[finalia.length];
 		for (int i = 0; i < finalia.length; i++)
 		{
 			returnlist[i] = array[finalia[i]]; //converting indexes into numbers
@@ -152,7 +173,7 @@ public class optimalSubsample {
 		System.out.printf("Array of data for N = 3: ");
 		Array.printarray(array1);
 		System.out.printf("Solution: ");
-		Array.printarray(optimalSubsample(array1, 3));
+		Array.printarray(optimalSubsample(array1, 1));
 		System.out.println();
 
 		System.out.printf("Array of data for N = 4: ");
@@ -190,8 +211,7 @@ public class optimalSubsample {
 		Array.printarray(optimalSubsample(array6, 13));
 		System.out.println();
 		
-		}
-	
 	}
-
+	
+}
 
