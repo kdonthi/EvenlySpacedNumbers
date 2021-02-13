@@ -190,7 +190,9 @@ public class optimalSubsample {
 		Array.printarray(array6);
 		Array.printarray(optimalSubsample(array6, 13));
 		System.out.println();
+		
+		}
+	
 	}
-}
 
 
