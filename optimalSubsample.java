@@ -141,15 +141,14 @@ public class optimalSubsample {
 	public static void main (String[] args) {
 		int array1[] = {0, 33, 50, 66, 100};
 		int array2[] = new int[100];
+		for (int i = 0; i < 100; i++) {
+			array2[i] = i;
+		}
 		int array3[] = {-897, -890, -819, -803, -612, -480, -330, -151, 43, 334, 463, 625, 894, 917, 947};
 		int array4[] = {-792, -706, -506, -464, -307, -285, -251, -236, -177, 37, 159, 359, 513, 731, 747};
 		int array5[] = {-936, -895, -889, -813, -770, -602, -497, -366, -181, -133, -78, 177, 290, 429, 550, 558, 566, 616};
 		int array6[] = {-932, -832, -696, -613, -470, -271, -138, -103, 54, 291, 405, 584, 796, 856, 901, 939, 948, 961, 997};
 
-		for (int i = 0; i < 100; i++)
-		{
-			array2[i] = i;
-		}
 		System.out.printf("Array of data for N = 3: ");
 		Array.printarray(array1);
 		System.out.printf("Solution: ");
