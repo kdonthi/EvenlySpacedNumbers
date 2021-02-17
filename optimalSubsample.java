@@ -173,7 +173,7 @@ public class optimalSubsample {
 		System.out.printf("Array of data for N = 3: ");
 		Array.printarray(array1);
 		System.out.printf("Solution: ");
-		Array.printarray(optimalSubsample(array1, 1));
+		Array.printarray(optimalSubsample(array1, 3));
 		System.out.println();
 
 		System.out.printf("Array of data for N = 4: ");
