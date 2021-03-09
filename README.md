@@ -11,8 +11,9 @@ Testcases:
 Cost Function for Evenness (code in Python3):
 
 ```
-set = [x_1, x_2, x_3,...,x_n], N = n
-optimalDistance = (x_n - x_1) / (n - 1)
+set = [x_1, x_2, x_3,...,x_n]
+N = n
+optimalDistance = (x_n - x_1) / (N - 1)
 evennessCost = 0
 for i,j in zip(set, set[1:]):
   evennessCost += ((j - i) - optimalDistance) ** 2 #basically sum of square errors between successive distances and optimalDistance
