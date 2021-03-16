@@ -135,10 +135,10 @@ def optimalSubsample(numsList, N):
 				lowestMse = mse
 				lowestMseList = resultlist
 	return (lowestMseList)
-
-print(optimalSubsample(list(range(100)),10))
-for i in range(2,5):
-	print(optimalSubsample([0,1,2,3,4,100],i))
-print(optimalSubsample([0,33,50,66,100], 3))
-print(optimalSubsample([0,33,50,66,100], 4))
-print()
+if __name__ == "__main__":
+    print(optimalSubsample(list(range(100)),10))
+    for i in range(2,5):
+	    print(optimalSubsample([0,1,2,3,4,100],i))
+    print(optimalSubsample([0,33,50,66,100], 3))
+    print(optimalSubsample([0,33,50,66,100], 4))
+    print()
