@@ -27,6 +27,20 @@ def solveForMinW(X, y):
     xT = X.T
     return (np.linalg.inv(xT.dot(X)).dot(xT.dot(y)))
 
+def forwardProp(X, W1, W2):
+    X2 = X.dot(W1)
+    return (X2.dot(W2))
+#def backProp(X, W1, W2):
+
+def neuralNetwork(X, y, N):
+    #3 layered NN with input units the size of N, hidden layer size of N+1, and output layer size of 1; linear activation function
+    W1 = 2*np.random.random(X.shape[0], N) - 1 #size X * size(hidden layer), 2 * [0,1) - 1 ==> [-1,1)
+    W2 = 2*np.random.random(N, 1) - 1 #size (hidden layer) * (1)
+    for i in range(50):
+        output = forwardProp(X, W1, W2)
+        cost = (((output - y) ** 2).mean()) * 0.5
+        backprop(X, W1, W2)
+        
 def createFeatures(X): 
     x = X
     sqrtX = np.sqrt(x)
@@ -185,17 +199,17 @@ with open("EthPricingData.txt") as obj:
     #print(xlst)
     #print(ylst)
     if len(xlst) == len(ylst):
-        print("Yay!")
+        print("Number of Values in Reduced X and Y vectors are same.")
     else:
-        print("No!")
+        print("Number of Values in Reduced X and Y vectors are NOT the same. Please check the code for any errors.")
+        exit()
+
+    redW = solveForMinW(createFeatures(xrarr), yrarr)
+    print("Reduced Data Training Cost: ", end = "")
+    print(costFunction(redW, createFeatures(xtrain), ytrain))
+    print("Reduced Data Testing Cost: ", end = "")
+    print(costFunction(redW, createFeatures(xtest), ytest))
     plt.plot(xrarr, yrarr, label="Reduced")
     plt.legend(loc="best")
     plt.show()
-
-    redW = solveForMinW(createFeatures(xrarr), yrarr)
-    print("Reduced Training Cost: ", end = "")
-    print(costFunction(redW, createFeatures(xtrain), ytrain))
-    print("Reduced Testing Cost: ", end = "")
-    print(costFunction(redW, createFeatures(xtest), ytest))
-
 
